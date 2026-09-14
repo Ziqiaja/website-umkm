@@ -9,6 +9,7 @@
 
 <body>
 
+  <!-- Navbar -->
   <header class="navbar">
     <div class="logo">☕ Cafenya Orang Have</div>
 
@@ -16,6 +17,7 @@
       <a href="#home">Home</a>
       <a href="#menu">Menu</a>
       <a href="#promo">Promo</a>
+      <a href="#info">Info</a>
       <a href="#kontak">Kontak</a>
     </nav>
   </header>
@@ -25,17 +27,17 @@
     <!-- Hero -->
     <section class="hero" id="home">
       <div class="hero-content">
-        <p class="subtitle">☕ Cafe Favoritmu</p>
+        <p class="subtitle">☕ Cafe Lokal Pekalongan</p>
 
         <h1>Cafenya Orang Have</h1>
 
         <p class="description">
-          Tempat nyaman untuk menikmati kopi lokal, ngobrol,
-          belajar, dan menghabiskan waktu bersama teman.
+          Tempat nongkrong nyaman untuk menikmati kopi,
+          ngobrol santai, belajar, dan berkumpul bersama teman.
         </p>
 
-        <button id="promo" type="button">
-          Lihat Promo Hari Ini
+        <button id="promoButton" type="button">
+          🎉 Cek Promo UMKM Hari Ini
         </button>
 
         <p id="promoText" class="promo-text"></p>
@@ -45,7 +47,9 @@
     <!-- Menu -->
     <section class="menu" id="menu">
       <h2>Menu Favorit</h2>
-      <p class="section-desc">Pilihan terbaik dari Cafenya Orang Have</p>
+      <p class="section-desc">
+        Pilihan menu favorit dari Cafenya Orang Have
+      </p>
 
       <div class="menu-container">
 
@@ -53,7 +57,8 @@
           <div class="icon">☕</div>
           <h3>Kopi Signature</h3>
           <p>
-            Kopi khas dengan aroma kuat dan rasa yang nikmat.
+            Kopi lokal dengan aroma kuat dan rasa seimbang,
+            cocok untuk menemani pagi atau waktu santai.
           </p>
           <span>Rp18.000</span>
         </div>
@@ -62,18 +67,31 @@
           <div class="icon">🧋</div>
           <h3>Es Kopi Gula Aren</h3>
           <p>
-            Kopi dingin dengan perpaduan susu dan gula aren.
+            Perpaduan espresso, susu creamy, dan gula aren
+            dengan rasa manis yang pas.
           </p>
           <span>Rp22.000</span>
-        </div> 
+        </div>
 
         <div class="card">
           <div class="icon">🍟</div>
           <h3>Mix Plater</h3>
           <p>
-            Aneka camilan untuk menemani waktu santai bersama teman.
+            Kombinasi kentang goreng, sosis, dan nugget
+            yang cocok untuk sharing bersama teman.
           </p>
           <span>Rp15.000</span>
+        </div>
+
+        <!-- Produk ketiga tambahan -->
+        <div class="card">
+          <div class="icon">🍫</div>
+          <h3>Chocolate Latte</h3>
+          <p>
+            Minuman cokelat creamy dengan perpaduan susu
+            dan espresso, cocok untuk pencinta rasa manis.
+          </p>
+          <span>Rp20.000</span>
         </div>
 
       </div>
@@ -81,13 +99,54 @@
 
     <!-- Promo -->
     <section class="promo" id="promo">
-      <h2>Promo Spesial 🎉</h2>
+      <h2>Promo Anak Nongkrong 🎉</h2>
+
       <p>
-        Dapatkan diskon <strong>10%</strong> untuk pembelian pertama!
+        Belanja di UMKM lokal, nikmati kopinya, dan dapatkan
+        <strong>diskon 10%</strong> untuk pembelian pertama!
       </p>
+
       <button id="promoButton2" type="button">
-        Ambil Promo
+        ☕ Ambil Promo Sekarang
       </button>
+    </section>
+
+    <!-- Jam Buka & Lokasi -->
+    <section class="info" id="info">
+      <h2>Jam Buka & Lokasi</h2>
+
+      <div class="info-container">
+
+        <div class="info-card">
+          <div class="info-icon">🕐</div>
+          <h3>Jam Buka</h3>
+
+          <p>Senin - Jumat</p>
+          <strong>09.00 - 22.00 WIB</strong>
+
+          <p>Sabtu - Minggu</p>
+          <strong>10.00 - 23.00 WIB</strong>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon">📍</div>
+          <h3>Lokasi</h3>
+
+          <p>
+            Cafenya Orang Have<br>
+            Pekalongan, Jawa Tengah
+          </p>
+
+          <a
+            class="location-button"
+            href="https://www.google.com/maps/search/?api=1&query=Pekalongan"
+            target="_blank"
+          >
+            📍 Lihat Lokasi
+          </a>
+        </div>
+
+      </div>
     </section>
 
   </main>
@@ -95,11 +154,19 @@
   <!-- Footer -->
   <footer id="kontak">
     <h3>☕ Cafenya Orang Have</h3>
-    <p>Kopi lokal, tempat nyaman, cerita yang berkesan.</p>
+
+    <p>
+      Kopi lokal, harga bersahabat, tempat nyaman.
+    </p>
+
+    <p>
+      📞 Hubungi kami untuk informasi menu dan pemesanan.
+    </p>
+
     <p>© 2026 Cafenya Orang Have</p>
   </footer>
 
-  <script src="style.js"></script>
+  <script src="script.js"></script>
 
 </body>
 </html>
