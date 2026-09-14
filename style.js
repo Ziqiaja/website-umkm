@@ -1,5 +1,5 @@
-const promoButton = document.querySelector("#promoButton");
-const promoButton2 = document.querySelector("#promoButton2");
+const promo = document.querySelector("#promo");
+const promo = document.querySelector("#promo");
 const promoText = document.querySelector("#promoText");
 
 function tampilkanPromo() {
