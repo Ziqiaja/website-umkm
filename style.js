@@ -1,20 +1,70 @@
-const promoButton = document.querySelector("#promoButton");
-const promoButton2 = document.querySelector("#promoButton2");
-const promoText = document.querySelector("#promoText");
+// ================================
+// TOMBOL PROMO HERO
+// ================================
 
-function tampilkanPromo() {
+const promoButton = document.getElementById("promoButton");
+const promoText = document.getElementById("promoText");
+
+promoButton.addEventListener("click", function () {
+
   promoText.textContent =
-    "🎉 Mantap! Kamu dapat diskon 10% untuk pembelian pertama di Cafenya Orang Have. Yuk dukung UMKM lokal! ☕";
+    "🎉 Promo hari ini: Dapatkan diskon 10% untuk pembelian pertama!";
 
-  promoButton.textContent = "✓ Promo Berhasil!";
-}
+});
 
-promoButton.addEventListener("click", tampilkanPromo);
 
-promoButton2.addEventListener("click", () => {
-  alert(
-    "☕ Terima kasih sudah mendukung Cafenya Orang Have!\n\n" +
-    "🎉 Kamu mendapatkan diskon 10% untuk pembelian pertama.\n\n" +
-    "Yuk nongkrong dan nikmati menu favoritmu!"
+// ================================
+// TOMBOL PROMO SECTION
+// ================================
+
+const promoButton2 = document.getElementById("promoButton2");
+const promoText2 = document.getElementById("promoText2");
+
+promoButton2.addEventListener("click", function () {
+
+  promoText2.textContent =
+    "☕ Promo berhasil dipilih! Silakan hubungi kami melalui WhatsApp.";
+
+});
+
+
+// ================================
+// CEK STRUKTUR HEADING
+// ================================
+
+const headings = [
+  ...document.querySelectorAll("h1, h2, h3")
+];
+
+console.log("Daftar heading pada halaman:");
+
+headings.forEach((heading) => {
+
+  console.log(
+    heading.tagName,
+    "-",
+    heading.textContent.trim()
   );
+
+});
+
+
+// ================================
+// EFEK LINK NAVIGASI
+// ================================
+
+const navLinks = document.querySelectorAll("nav a");
+
+navLinks.forEach((link) => {
+
+  link.addEventListener("click", function () {
+
+    navLinks.forEach((item) => {
+      item.classList.remove("active");
+    });
+
+    this.classList.add("active");
+
+  });
+
 });
