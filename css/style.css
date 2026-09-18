@@ -1,6 +1,4 @@
-/* =========================
-   RESET
-========================= */
+
 
 * {
   box-sizing: border-box;
@@ -14,10 +12,6 @@ body {
   color: #352017;
 }
 
-
-/* =========================
-   NAVBAR
-========================= */
 
 .navbar {
   position: sticky;
@@ -63,9 +57,6 @@ nav a:hover {
 }
 
 
-/* =========================
-   HERO
-========================= */
 
 .hero {
   min-height: 650px;
@@ -148,11 +139,6 @@ button:hover {
   font-weight: bold;
   color: #f4b942;
 }
-
-
-/* =========================
-   SECTION UMUM
-========================= */
 
 .section-label {
   margin-bottom: 8px;
