@@ -1,4 +1,6 @@
-
+/* =========================
+   RESET
+========================= */
 
 * {
   box-sizing: border-box;
@@ -12,6 +14,10 @@ body {
   color: #352017;
 }
 
+
+/* =========================
+   NAVBAR
+========================= */
 
 .navbar {
   position: sticky;
@@ -40,7 +46,9 @@ body {
 
 nav {
   display: flex;
-  gap: 25px;
+  gap: 18px;
+
+  flex-wrap: wrap;
 }
 
 nav a {
@@ -57,6 +65,9 @@ nav a:hover {
 }
 
 
+/* =========================
+   HERO
+========================= */
 
 .hero {
   min-height: 650px;
@@ -85,23 +96,27 @@ nav a:hover {
   max-width: 700px;
 }
 
-.subtitle {
-  margin-bottom: 15px;
+.subtitle,
+.section-label {
+  letter-spacing: 3px;
 
-  letter-spacing: 4px;
-
-  font-size: 14px;
+  font-size: 13px;
   font-weight: bold;
 
+  color: #9b633d;
+}
+
+.hero .subtitle {
   color: #f4d28a;
 }
 
 .hero h1 {
-  margin: 0 0 20px;
+  margin: 15px 0;
 
   font-family: Georgia, serif;
 
   font-size: clamp(48px, 7vw, 82px);
+
   line-height: 1;
 }
 
@@ -112,60 +127,54 @@ nav a:hover {
   line-height: 1.7;
 }
 
-button {
-  border: none;
-  border-radius: 30px;
+.hero-button {
+  display: inline-block;
 
-  padding: 15px 25px;
-  margin-top: 15px;
+  margin-top: 20px;
+
+  padding: 14px 25px;
+
+  border-radius: 30px;
 
   background: #f4b942;
   color: #352017;
 
-  font-size: 16px;
-  font-weight: bold;
+  text-decoration: none;
 
-  cursor: pointer;
+  font-weight: bold;
 
   transition: 0.3s;
 }
 
-button:hover {
+.hero-button:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-}
-
-.promo-text {
-  font-weight: bold;
-  color: #f4b942;
-}
-
-.section-label {
-  margin-bottom: 8px;
-
-  letter-spacing: 3px;
-
-  font-size: 13px;
-  font-weight: bold;
-
-  color: #9b633d;
-}
-
-h2 {
-  font-family: Georgia, serif;
-
-  font-size: 42px;
-
-  margin: 0 0 10px;
-}
-
-.section-desc {
-  color: #6b5549;
 }
 
 
 /* =========================
-   MENU
+   SECTION
+========================= */
+
+section {
+  scroll-margin-top: 90px;
+}
+
+h2 {
+  margin: 0 0 10px;
+
+  font-family: Georgia, serif;
+
+  font-size: 42px;
+}
+
+.section-desc {
+  color: #6b5549;
+  line-height: 1.6;
+}
+
+
+/* =========================
+   KATALOG PRODUK
 ========================= */
 
 .menu {
@@ -202,9 +211,10 @@ h2 {
 
 .card:hover {
   transform: translateY(-8px);
+}
 
-  box-shadow:
-    0 18px 35px rgba(53, 32, 23, 0.17);
+.card figure {
+  margin: 0;
 }
 
 .card img {
@@ -216,41 +226,40 @@ h2 {
   object-fit: cover;
 }
 
-.card-content {
-  position: relative;
+.card figcaption {
+  position: absolute;
 
+  width: 1px;
+  height: 1px;
+
+  overflow: hidden;
+
+  clip: rect(0, 0, 0, 0);
+}
+
+.card-content {
   padding: 25px;
 }
 
-.icon {
-  position: absolute;
+.product-category {
+  display: inline-block;
 
-  top: -25px;
-  left: 22px;
+  padding: 5px 10px;
 
-  width: 50px;
-  height: 50px;
+  border-radius: 20px;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background: #ead7bd;
 
-  background: #7c3f16;
-  color: white;
+  color: #7c3f16;
 
-  border-radius: 50%;
-
-  font-size: 22px;
-
-  border: 4px solid white;
+  font-size: 12px;
+  font-weight: bold;
 }
 
 .card h3 {
-  margin-top: 15px;
-
   font-family: Georgia, serif;
 
-  font-size: 21px;
+  font-size: 22px;
 }
 
 .card p {
@@ -259,7 +268,7 @@ h2 {
   line-height: 1.6;
 }
 
-.card span {
+.price {
   display: block;
 
   margin-top: 20px;
@@ -267,7 +276,171 @@ h2 {
   color: #7c3f16;
 
   font-size: 19px;
+}
+
+
+/* =========================
+   MEDIA SEMANTIK
+========================= */
+
+.media-section {
+  padding: 80px 7%;
+
+  background: #ead7bd;
+
+  text-align: center;
+}
+
+.media-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, 1fr);
+
+  gap: 25px;
+
+  max-width: 1100px;
+
+  margin: 40px auto 0;
+}
+
+.main-photo {
+  grid-column: 1 / -1;
+
+  margin: 0;
+
+  background: white;
+
+  border-radius: 18px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 10px 30px rgba(53, 32, 23, 0.1);
+}
+
+.main-photo img {
+  width: 100%;
+
+  display: block;
+
+  max-height: 450px;
+
+  object-fit: cover;
+}
+
+.main-photo figcaption {
+  padding: 15px;
+
+  color: #6b5549;
+
+  font-style: italic;
+}
+
+.media-card {
+  padding: 25px;
+
+  background: white;
+
+  border-radius: 18px;
+
+  text-align: left;
+
+  box-shadow:
+    0 10px 30px rgba(53, 32, 23, 0.1);
+}
+
+.media-card h3 {
+  font-family: Georgia, serif;
+}
+
+.media-card p {
+  color: #6b5549;
+
+  line-height: 1.6;
+}
+
+audio {
+  width: 100%;
+
+  margin-top: 10px;
+}
+
+video {
+  width: 100%;
+
+  display: block;
+
+  border-radius: 12px;
+}
+
+.media-card small {
+  display: block;
+
+  margin-top: 10px;
+
+  color: #806e62;
+}
+
+
+/* =========================
+   TABEL HARGA
+========================= */
+
+.harga {
+  padding: 80px 7%;
+
+  text-align: center;
+}
+
+.table-wrapper {
+  max-width: 900px;
+
+  margin: 40px auto 0;
+
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+
+  border-collapse: collapse;
+
+  background: white;
+
+  box-shadow:
+    0 10px 30px rgba(53, 32, 23, 0.1);
+}
+
+caption {
+  padding: 15px;
+
   font-weight: bold;
+
+  text-align: left;
+}
+
+th,
+td {
+  padding: 15px;
+
+  border: 1px solid #dfcdbb;
+
+  text-align: left;
+}
+
+thead th {
+  background: #3b2115;
+
+  color: white;
+}
+
+tbody th {
+  background: #f4e9dc;
+}
+
+tbody tr:hover {
+  background: #fff8ef;
 }
 
 
@@ -293,30 +466,58 @@ h2 {
   padding: 55px;
 }
 
-.promo-title {
-  display: flex;
-  align-items: center;
-
-  gap: 15px;
-}
-
-.promo-title h2 {
-  font-size: 34px;
-}
-
 .promo-content p {
-  color: #5e4637;
-
   line-height: 1.7;
+
+  color: #5e4637;
+}
+
+.promo button {
+  border: none;
+
+  padding: 14px 25px;
+
+  border-radius: 30px;
+
+  background: #7c3f16;
+
+  color: white;
+
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+.promo-text {
+  color: #7c3f16 !important;
+
+  font-weight: bold;
+}
+
+.promo-image {
+  margin: 0;
 }
 
 .promo-image img {
   width: 100%;
   height: 100%;
 
+  min-height: 300px;
+
   display: block;
 
   object-fit: cover;
+}
+
+.promo-image figcaption {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+
+  overflow: hidden;
+
+  clip: rect(0, 0, 0, 0);
 }
 
 
@@ -383,9 +584,11 @@ h2 {
   display: inline-block;
 
   padding: 12px 20px;
+
   border-radius: 25px;
 
   background: #7c3f16;
+
   color: white;
 
   text-decoration: none;
@@ -398,13 +601,11 @@ h2 {
 .location-button:hover,
 .whatsapp-button:hover {
   background: #4e250e;
-
-  transform: translateY(-2px);
 }
 
 
 /* =========================
-   KONTAK SINGKAT
+   KONTAK
 ========================= */
 
 .kontak-singkat {
@@ -420,8 +621,7 @@ h2 {
 
   display: grid;
 
-  grid-template-columns:
-    repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
 
   margin: 45px auto 0;
 }
@@ -438,14 +638,10 @@ h2 {
 
 .contact-icon {
   font-size: 35px;
-
-  margin-bottom: 10px;
 }
 
 .contact-item h3 {
   font-family: Georgia, serif;
-
-  font-size: 20px;
 }
 
 .contact-item p {
@@ -500,15 +696,11 @@ footer p {
   }
 
   nav {
-    gap: 15px;
-
-    flex-wrap: wrap;
-
     justify-content: center;
   }
 
   .hero {
-    min-height: 600px;
+    min-height: 580px;
 
     text-align: center;
 
@@ -519,8 +711,14 @@ footer p {
     font-size: 50px;
   }
 
+  .media-grid {
+    grid-template-columns: 1fr;
+  }
+
   .promo {
     grid-template-columns: 1fr;
+
+    margin: 0 5%;
   }
 
   .promo-content {
@@ -528,7 +726,7 @@ footer p {
   }
 
   .promo-image {
-    height: 250px;
+    height: 280px;
   }
 
   .contact-container {
@@ -550,6 +748,10 @@ footer p {
 
 @media (max-width: 500px) {
 
+  .navbar {
+    padding: 15px;
+  }
+
   .logo {
     font-size: 18px;
   }
@@ -557,7 +759,7 @@ footer p {
   nav {
     gap: 10px;
 
-    font-size: 14px;
+    font-size: 13px;
   }
 
   .hero {
@@ -577,8 +779,14 @@ footer p {
   }
 
   .menu,
-  .info {
+  .harga,
+  .info,
+  .media-section {
     padding: 60px 20px;
+  }
+
+  .table-wrapper {
+    font-size: 14px;
   }
 
 }
