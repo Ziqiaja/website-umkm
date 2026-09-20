@@ -1,6 +1,6 @@
-// ================================
-// TOMBOL PROMO HERO
-// ================================
+// ========================================
+// TOMBOL PROMO
+// ========================================
 
 const promoButton = document.getElementById("promoButton");
 const promoText = document.getElementById("promoText");
@@ -8,35 +8,20 @@ const promoText = document.getElementById("promoText");
 promoButton.addEventListener("click", function () {
 
   promoText.textContent =
-    "🎉 Promo hari ini: Dapatkan diskon 10% untuk pembelian pertama!";
+    "🎉 Promo berhasil dipilih! Hubungi kami melalui WhatsApp untuk mendapatkan informasi.";
 
 });
 
 
-// ================================
-// TOMBOL PROMO SECTION
-// ================================
-
-const promoButton2 = document.getElementById("promoButton2");
-const promoText2 = document.getElementById("promoText2");
-
-promoButton2.addEventListener("click", function () {
-
-  promoText2.textContent =
-    "☕ Promo berhasil dipilih! Silakan hubungi kami melalui WhatsApp.";
-
-});
-
-
-// ================================
+// ========================================
 // CEK STRUKTUR HEADING
-// ================================
+// ========================================
 
 const headings = [
   ...document.querySelectorAll("h1, h2, h3")
 ];
 
-console.log("Daftar heading pada halaman:");
+console.log("=== STRUKTUR HEADING ===");
 
 headings.forEach((heading) => {
 
@@ -49,9 +34,38 @@ headings.forEach((heading) => {
 });
 
 
-// ================================
-// EFEK LINK NAVIGASI
-// ================================
+// ========================================
+// CEK GAMBAR
+// ========================================
+
+const images = document.querySelectorAll("img");
+
+console.log("=== PEMERIKSAAN ALT IMAGE ===");
+
+images.forEach((image) => {
+
+  if (image.alt.trim() === "") {
+
+    console.warn(
+      "Gambar belum memiliki alt text:",
+      image.src
+    );
+
+  } else {
+
+    console.log(
+      "OK:",
+      image.alt
+    );
+
+  }
+
+});
+
+
+// ========================================
+// NAVIGASI AKTIF
+// ========================================
 
 const navLinks = document.querySelectorAll("nav a");
 
