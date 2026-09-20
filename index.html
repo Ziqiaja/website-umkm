@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Cafenya Orang Have</title>
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="CSS/style.css">
 </head>
 
 <body>
@@ -14,13 +15,15 @@
   <!-- ================= NAVBAR ================= -->
   <header class="navbar">
 
-    <a href="#home" class="logo">
-      ☕ <span>Cafenya Orang Have</span>
+    <a href="#home" class="logo" aria-label="Cafenya Orang Have - Beranda">
+      ☕ Cafenya Orang Have
     </a>
 
     <nav aria-label="Navigasi utama">
       <a href="#home">Home</a>
       <a href="#menu">Menu</a>
+      <a href="#media">Media</a>
+      <a href="#harga">Harga</a>
       <a href="#promo">Promo</a>
       <a href="#info">Info</a>
       <a href="#kontak-singkat">Kontak</a>
@@ -32,7 +35,7 @@
   <main>
 
     <!-- ================= HERO ================= -->
-    <section class="hero" id="home">
+    <section class="hero" id="home" aria-labelledby="hero-title">
 
       <div class="hero-content">
 
@@ -40,7 +43,7 @@
           CAFE LOKAL PEKALONGAN
         </p>
 
-        <h1>
+        <h1 id="hero-title">
           Cafenya Orang Have
         </h1>
 
@@ -49,46 +52,53 @@
           ngobrol santai, belajar, dan berkumpul bersama teman.
         </p>
 
-        <button id="promoButton" type="button">
-          🎉 Cek Promo UMKM Hari Ini
-        </button>
-
-        <p id="promoText" class="promo-text"></p>
+        <a href="#menu" class="hero-button">
+          ☕ Lihat Menu
+        </a>
 
       </div>
 
     </section>
 
 
-    <!-- ================= MENU ================= -->
-    <section class="menu" id="menu">
+    <!-- ================= KATALOG PRODUK ================= -->
+    <section class="menu" id="menu" aria-labelledby="menu-title">
 
       <p class="section-label">MENU KAMI</p>
 
-      <h2>
-        Menu Favorit
+      <h2 id="menu-title">
+        Katalog Produk
       </h2>
 
       <p class="section-desc">
-        Pilihan menu favorit dari Cafenya Orang Have
+        Pilihan makanan dan minuman favorit Cafenya Orang Have.
       </p>
 
 
       <div class="menu-container">
 
-        <!-- MENU 1 -->
+        <!-- PRODUK 1 -->
         <article class="card">
 
-          <img
-            src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=700&q=80"
-            alt="Secangkir kopi hitam sebagai menu Kopi Signature"
-          >
+          <figure>
+
+            <img
+              src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=700&q=80"
+              alt="Secangkir kopi hitam sebagai menu Kopi Signature"
+              loading="lazy"
+            >
+
+            <figcaption>
+              Kopi Signature
+            </figcaption>
+
+          </figure>
 
           <div class="card-content">
 
-            <div class="icon">
-              ☕
-            </div>
+            <span class="product-category">
+              Minuman
+            </span>
 
             <h3>
               Kopi Signature
@@ -99,28 +109,37 @@
               cocok untuk menemani pagi atau waktu santai.
             </p>
 
-            <span>
+            <strong class="price">
               Rp50.000
-            </span>
+            </strong>
 
           </div>
 
         </article>
 
 
-        <!-- MENU 2 -->
+        <!-- PRODUK 2 -->
         <article class="card">
 
-          <img
-            src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=700&q=80"
-            alt="Es kopi susu gula aren dalam gelas"
-          >
+          <figure>
+
+            <img
+              src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=700&q=80"
+              alt="Es kopi susu gula aren dalam gelas dengan lapisan susu"
+              loading="lazy"
+            >
+
+            <figcaption>
+              Es Kopi Gula Aren
+            </figcaption>
+
+          </figure>
 
           <div class="card-content">
 
-            <div class="icon">
-              🧋
-            </div>
+            <span class="product-category">
+              Minuman
+            </span>
 
             <h3>
               Es Kopi Gula Aren
@@ -131,28 +150,37 @@
               dengan rasa manis yang pas.
             </p>
 
-            <span>
+            <strong class="price">
               Rp70.000
-            </span>
+            </strong>
 
           </div>
 
         </article>
 
 
-        <!-- MENU 3 -->
+        <!-- PRODUK 3 -->
         <article class="card">
 
-          <img
-            src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=700&q=80"
-            alt="Kentang goreng dan makanan ringan untuk menu Mix Plater"
-          >
+          <figure>
+
+            <img
+              src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=700&q=80"
+              alt="Kentang goreng dan makanan ringan dalam satu piring"
+              loading="lazy"
+            >
+
+            <figcaption>
+              Mix Plater
+            </figcaption>
+
+          </figure>
 
           <div class="card-content">
 
-            <div class="icon">
-              🍟
-            </div>
+            <span class="product-category">
+              Makanan
+            </span>
 
             <h3>
               Mix Plater
@@ -163,28 +191,37 @@
               yang cocok untuk sharing bersama teman.
             </p>
 
-            <span>
+            <strong class="price">
               Rp35.000
-            </span>
+            </strong>
 
           </div>
 
         </article>
 
 
-        <!-- MENU 4 -->
+        <!-- PRODUK 4 -->
         <article class="card">
 
-          <img
-            src="https://images.unsplash.com/photo-1542990253-0d0f5be5f0ed?auto=format&fit=crop&w=700&q=80"
-            alt="Minuman chocolate latte dengan foam susu"
-          >
+          <figure>
+
+            <img
+              src="https://images.unsplash.com/photo-1542990253-0d0f5be5f0ed?auto=format&fit=crop&w=700&q=80"
+              alt="Chocolate latte dengan foam susu di atasnya"
+              loading="lazy"
+            >
+
+            <figcaption>
+              Chocolate Latte
+            </figcaption>
+
+          </figure>
 
           <div class="card-content">
 
-            <div class="icon">
-              🍫
-            </div>
+            <span class="product-category">
+              Minuman
+            </span>
 
             <h3>
               Chocolate Latte
@@ -195,9 +232,9 @@
               dan espresso, cocok untuk pencinta rasa manis.
             </p>
 
-            <span>
+            <strong class="price">
               Rp30.000
-            </span>
+            </strong>
 
           </div>
 
@@ -208,22 +245,185 @@
     </section>
 
 
+    <!-- ================= MEDIA SEMANTIK ================= -->
+    <section class="media-section" id="media" aria-labelledby="media-title">
+
+      <p class="section-label">
+        MEDIA
+      </p>
+
+      <h2 id="media-title">
+        Suasana Cafenya Orang Have
+      </h2>
+
+      <p class="section-desc">
+        Kenali suasana café melalui gambar, audio, dan video.
+      </p>
+
+
+      <div class="media-grid">
+
+        <!-- FIGURE + FIGCAPTION -->
+        <figure class="main-photo">
+
+          <img
+            src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80"
+            alt="Interior café dengan meja kayu dan suasana nyaman"
+            loading="lazy"
+          >
+
+          <figcaption>
+            Suasana nyaman untuk nongkrong dan menikmati kopi.
+          </figcaption>
+
+        </figure>
+
+
+        <!-- AUDIO -->
+        <article class="media-card">
+
+          <h3>
+            🎵 Suasana Musik Café
+          </h3>
+
+          <p>
+            Dengarkan musik santai saat menikmati suasana café.
+          </p>
+
+          <audio controls preload="none">
+            <source
+              src="audio/suasana-cafe.mp3"
+              type="audio/mpeg"
+            >
+
+            Browser Anda tidak mendukung pemutar audio.
+          </audio>
+
+          <small>
+            Audio akan diputar hanya setelah pengguna menekan tombol play.
+          </small>
+
+        </article>
+
+
+        <!-- VIDEO -->
+        <article class="media-card">
+
+          <h3>
+            🎬 Video Café
+          </h3>
+
+          <p>
+            Video singkat suasana Cafenya Orang Have.
+          </p>
+
+          <video
+            controls
+            preload="metadata"
+            poster="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1000&q=80"
+          >
+
+            <source
+              src="video/suasana-cafe.mp4"
+              type="video/mp4"
+            >
+
+            Browser Anda tidak mendukung pemutar video.
+
+          </video>
+
+          <small>
+            Video tidak diputar otomatis dan tidak menggunakan suara otomatis.
+          </small>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= TABEL HARGA ================= -->
+    <section class="harga" id="harga" aria-labelledby="harga-title">
+
+      <p class="section-label">
+        DAFTAR HARGA
+      </p>
+
+      <h2 id="harga-title">
+        Harga Menu
+      </h2>
+
+      <div class="table-wrapper">
+
+        <table>
+
+          <caption>
+            Daftar harga makanan dan minuman Cafenya Orang Have
+          </caption>
+
+          <thead>
+
+            <tr>
+              <th scope="col">No</th>
+              <th scope="col">Nama Produk</th>
+              <th scope="col">Kategori</th>
+              <th scope="col">Harga</th>
+            </tr>
+
+          </thead>
+
+          <tbody>
+
+            <tr>
+              <th scope="row">1</th>
+              <td>Kopi Signature</td>
+              <td>Minuman</td>
+              <td>Rp50.000</td>
+            </tr>
+
+            <tr>
+              <th scope="row">2</th>
+              <td>Es Kopi Gula Aren</td>
+              <td>Minuman</td>
+              <td>Rp70.000</td>
+            </tr>
+
+            <tr>
+              <th scope="row">3</th>
+              <td>Mix Plater</td>
+              <td>Makanan</td>
+              <td>Rp35.000</td>
+            </tr>
+
+            <tr>
+              <th scope="row">4</th>
+              <td>Chocolate Latte</td>
+              <td>Minuman</td>
+              <td>Rp30.000</td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </section>
+
+
     <!-- ================= PROMO ================= -->
-    <section class="promo" id="promo">
+    <section class="promo" id="promo" aria-labelledby="promo-title">
 
       <div class="promo-content">
 
-        <div class="promo-title">
+        <p class="section-label">
+          PROMO UMKM
+        </p>
 
-          <span>☕</span>
-
-          <h2>
-            Promo Anak Nongkrong
-          </h2>
-
-          <span>☕</span>
-
-        </div>
+        <h2 id="promo-title">
+          Promo Anak Nongkrong 🎉
+        </h2>
 
         <p>
           Belanja di UMKM lokal, nikmati kopinya,
@@ -231,41 +431,50 @@
           untuk pembelian pertama!
         </p>
 
-        <button id="promoButton2" type="button">
+        <button id="promoButton" type="button">
           ☕ Ambil Promo Sekarang
         </button>
 
-        <p id="promoText2" class="promo-text"></p>
+        <p
+          id="promoText"
+          class="promo-text"
+          aria-live="polite"
+        ></p>
 
       </div>
 
-      <div class="promo-image">
+
+      <figure class="promo-image">
 
         <img
-          src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80"
+          src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1000&q=80"
           alt="Secangkir kopi latte di meja café"
+          loading="lazy"
         >
 
-      </div>
+        <figcaption>
+          Nikmati kopi sambil bersantai.
+        </figcaption>
+
+      </figure>
 
     </section>
 
 
     <!-- ================= INFO ================= -->
-    <section class="info" id="info">
+    <section class="info" id="info" aria-labelledby="info-title">
 
       <p class="section-label">
         INFORMASI
       </p>
 
-      <h2>
+      <h2 id="info-title">
         Jam Buka & Lokasi
       </h2>
 
 
       <div class="info-container">
 
-        <!-- JAM BUKA -->
         <article class="info-card">
 
           <div class="info-icon">
@@ -295,7 +504,6 @@
         </article>
 
 
-        <!-- LOKASI -->
         <article class="info-card">
 
           <div class="info-icon">
@@ -345,7 +553,7 @@
 
       <div class="contact-container">
 
-        <div class="contact-item">
+        <article class="contact-item">
 
           <div class="contact-icon">
             📍
@@ -360,10 +568,10 @@
             Pekalongan, Jawa Tengah
           </p>
 
-        </div>
+        </article>
 
 
-        <div class="contact-item">
+        <article class="contact-item">
 
           <div class="contact-icon">
             🕐
@@ -378,26 +586,21 @@
             09.00 - 22.00 WIB
           </p>
 
-          <p>
-            Sabtu - Minggu<br>
-            10.00 - 23.00 WIB
-          </p>
-
-        </div>
+        </article>
 
 
-        <div class="contact-item">
+        <article class="contact-item">
 
           <div class="contact-icon">
             💬
           </div>
 
           <h3>
-            Hubungi Kami
+            WhatsApp
           </h3>
 
           <p>
-            Butuh informasi menu atau pemesanan?
+            Informasi menu dan pemesanan.
           </p>
 
           <a
@@ -406,10 +609,10 @@
             target="_blank"
             rel="noopener noreferrer"
           >
-            💬 Chat WhatsApp
+            💬 Chat WhatsApp Cafenya Orang Have
           </a>
 
-        </div>
+        </article>
 
       </div>
 
@@ -440,7 +643,8 @@
   </footer>
 
 
-  <script src="style.js"></script>
+  <script src="JS/script.js"></script>
 
 </body>
+
 </html>
