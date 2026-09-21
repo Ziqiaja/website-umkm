@@ -20,7 +20,7 @@ nav { display: flex; flex-wrap: wrap; gap: 24px; }
 nav a { color: var(--muted); font-size: .95rem; text-decoration: none; }
 nav a:hover, nav a.active { color: var(--coffee); font-weight: bold; }
 
-.hero { align-items: center; background: linear-gradient(90deg, rgba(39, 25, 18, .9), rgba(39, 25, 18, .3)), url("https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1800&q=85") center/cover; color: white; display: flex; min-height: 600px; padding: 80px 8%; }
+.hero { align-items: center; background: linear-gradient(90deg, rgba(39, 25, 18, .9), rgba(39, 25, 18, .3)), url("https://upload.wikimedia.org/wikipedia/commons/4/45/A_small_cup_of_coffee.JPG") center/cover; color: white; display: flex; min-height: 600px; padding: 80px 8%; }
 .hero-content { max-width: 650px; }
 .hero h1, .page-heading h1 { font-family: Georgia, serif; font-size: clamp(2.6rem, 6vw, 5rem); line-height: 1.05; margin: 12px 0 20px; }
 .hero p:not(.eyebrow), .page-heading p:not(.eyebrow) { font-size: 1.1rem; max-width: 600px; }
