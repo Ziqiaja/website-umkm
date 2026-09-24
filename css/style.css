@@ -69,6 +69,23 @@ th { color: var(--coffee); }
 .info-grid { grid-template-columns: repeat(3, 1fr); }
 .info-box strong { color: var(--coffee); }
 .text-link { color: var(--coffee); font-weight: bold; }
+.contact-section { max-width: 1250px; }
+.contact-layout { display: grid; gap: 50px; grid-template-columns: minmax(220px, .7fr) minmax(0, 1.3fr); }
+.contact-layout h2 { font-family: Georgia, serif; line-height: 1.15; margin: 8px 0 14px; }
+.contact-form { background: var(--paper); border: 1px solid var(--line); padding: 28px; }
+.field { display: grid; gap: 6px; margin-bottom: 18px; }
+.field label, fieldset legend { font-weight: bold; }
+input, select, textarea { border: 1px solid var(--line); color: var(--ink); font: inherit; padding: 11px 12px; width: 100%; }
+input:focus, select:focus, textarea:focus { border-color: var(--coffee); outline: 2px solid rgba(212, 154, 82, .35); }
+.form-grid { display: grid; gap: 18px; grid-template-columns: repeat(2, 1fr); }
+fieldset { border: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: 12px 22px; margin: 0 0 18px; padding: 14px; }
+fieldset legend { color: var(--coffee); padding: 0 6px; }
+fieldset label { color: var(--muted); }
+fieldset input { accent-color: var(--coffee); margin-right: 6px; width: auto; }
+.contact-form .button { border: 0; }
+.preview-box { border-top: 1px solid var(--line); margin-top: 28px; padding-top: 20px; }
+.preview-box h2 { font-size: 1.2rem; }
+.preview-box pre { background: var(--cream); color: var(--muted); overflow-x: auto; padding: 16px; white-space: pre-wrap; }
 footer { align-items: center; background: #2e241f; color: white; display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; padding: 30px 7%; }
 footer span { color: #d8c8bb; font-size: .9rem; }
 
@@ -78,6 +95,7 @@ footer span { color: #d8c8bb; font-size: .9rem; }
   .hero { min-height: 520px; padding: 60px 7%; }
   .section { padding-bottom: 60px; padding-top: 60px; }
   .feature-grid, .info-grid, .product-grid, .gallery-grid, .split-section { grid-template-columns: 1fr; }
+  .contact-layout, .form-grid { grid-template-columns: 1fr; }
   .gallery-main { grid-column: auto; }
   .gallery-main img, .gallery-grid figure img { height: 280px !important; }
   .product-card { grid-template-columns: 110px 1fr; padding: 16px; }
