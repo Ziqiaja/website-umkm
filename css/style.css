@@ -58,7 +58,7 @@ nav a:hover, nav a.active, nav a[aria-current="page"] { color: var(--accent-deep
 .skip-link { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius-sm); left: var(--space-4); padding: var(--space-2) var(--space-3); position: absolute; top: -100px; z-index: 20; }
 .skip-link:focus { top: var(--space-4); }
 
-.hero { align-items: center; background: linear-gradient(90deg, rgba(28, 48, 40, .91), rgba(38, 61, 51, .34)), url("https://upload.wikimedia.org/wikipedia/commons/7/76/Coffee_cup.jpg") center/cover; color: white; display: flex; min-height: 600px; padding: var(--space-20) 8%; }
+.hero { align-items: center; background: linear-gradient(90deg, rgba(28, 48, 40, .91), rgba(38, 61, 51, .34)), url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxkF2Qh8Mg9f2MZItOFIrlC7o8lB_KImjuRpJ8rQwmgIERSnuZ1sCwY2Ku&s=10") center/cover; color: white; display: flex; min-height: 600px; padding: var(--space-20) 8%; }
 .hero-content { max-width: 650px; }
 .hero h1, .page-heading h1 { font-size: var(--text-display); line-height: 1.05; margin: var(--space-3) 0 var(--space-5); }
 .hero p:not(.eyebrow), .page-heading p:not(.eyebrow) { font-size: var(--text-lead); max-width: 600px; }
