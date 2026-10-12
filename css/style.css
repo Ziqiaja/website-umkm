@@ -83,10 +83,14 @@ nav a:hover, nav a.active, nav a[aria-current="page"] { color: var(--accent-deep
 
 .product-grid { grid-template-columns: repeat(2, 1fr); }
 .product-card, .info-box, .media-box { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius-md); box-shadow: 0 8px 22px rgba(38, 58, 51, .045); padding: var(--space-6); }
-.product-card { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: var(--space-5); }
-.product-card img { border-radius: var(--radius-sm); height: 150px; object-fit: cover; width: 100%; }
-.product-card h2 { font-size: 1.3rem; }
-.product-card strong { color: var(--coffee); }
+.product-card { display: flex; flex-direction: column; gap: var(--space-4); }
+.product-card > img { aspect-ratio: 16 / 9; border-radius: var(--radius-sm); height: auto; object-fit: cover; width: 100%; }
+.product-card > div { display: flex; flex: 1; flex-direction: column; }
+.product-card h2 { font-size: 1.3rem; margin: var(--space-2) 0; }
+.product-card p { flex: 1; margin-bottom: var(--space-3); }
+.product-card strong { color: var(--coffee); padding-top: var(--space-2); }
+.product-card .button { align-self: flex-start; font-size: .75rem; padding: var(--space-1) var(--space-3); }
+.product-actions { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-4); }
 .tag { color: var(--coffee); font-size: .75rem; font-weight: bold; letter-spacing: .08em; text-transform: uppercase; }
 .price-section { border-top: 1px solid var(--line); max-width: none; }
 .table-wrap { overflow-x: auto; }
@@ -147,8 +151,7 @@ footer span { color: var(--footer-muted); font-size: var(--text-small); }
   .contact-layout { gap: var(--space-8); }
   .gallery-main { grid-column: auto; }
   .gallery-main img, .gallery-grid figure img { height: 280px !important; }
-  .product-card { grid-template-columns: 110px minmax(0, 1fr); padding: var(--space-4); }
-  .product-card img { height: 110px; }
+  .product-card { gap: var(--space-3); padding: var(--space-4); }
   .contact-form, .page form { padding: var(--space-5); }
   .page { padding-bottom: var(--space-8); padding-top: var(--space-8); }
   footer { align-items: flex-start; flex-direction: column; gap: var(--space-2); }

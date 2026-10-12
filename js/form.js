@@ -19,3 +19,16 @@ form.addEventListener("submit", (event) => {
   ].join("\n");
 });
 }
+
+const productName = new URLSearchParams(window.location.search).get("produk");
+if (form && productName) {
+  const messageField = form.querySelector("#pesan");
+  const productTopic = form.querySelector('input[name="topik"][value="produk"]');
+
+  if (messageField) {
+    messageField.value = `Halo, saya ingin bertanya tentang ${productName}.`;
+  }
+  if (productTopic) {
+    productTopic.checked = true;
+  }
+}
