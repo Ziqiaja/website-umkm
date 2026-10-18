@@ -1,0 +1,19 @@
+.gallery-grid {
+  background-image: radial-gradient(rgba(56, 86, 75, .13) 1px, transparent 1px);
+  background-size: 16px 16px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+}
+
+.gallery-grid .media-box {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.gallery-grid .media-box > h2,
+.gallery-grid .media-box > p,
+.gallery-grid .media-box > audio,
+.gallery-grid .media-box > video,
+.gallery-grid .media-box > .button {
+  margin: 0;
+}
