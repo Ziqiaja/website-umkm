@@ -41,7 +41,7 @@
 *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body { margin: 0; background: var(--cream); color: var(--ink); font-family: var(--font-body); font-size: var(--text-body); line-height: 1.6; }
-h1, h2, h3 { color: inherit; font-family: var(--font-display); line-height: 1.15; }
+h1, h2, h3 { color: inherit; font-family: var(--font-display); line-height: 1.15; overflow-wrap: anywhere; }
 h2 { font-size: 2rem; }
 img, video { display: block; max-width: 100%; }
 audio { max-width: 100%; }
@@ -70,7 +70,7 @@ nav a:hover, nav a.active, nav a[aria-current="page"] { color: var(--accent-deep
 
 .section { margin: 0 auto; max-width: 1150px; padding: var(--space-20) var(--page-gutter); }
 .section h2, .info-box h2, .media-box h2 { margin: var(--space-2) 0 var(--space-3); }
-.section-lead { color: var(--muted); max-width: 650px; }
+.section-lead { color: var(--muted); max-width: 650px; overflow-wrap: anywhere; }
 .button-row { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-7); }
 .button { border: 0; border-radius: var(--radius-sm); cursor: pointer; display: inline-block; font: inherit; font-weight: bold; padding: var(--space-3) var(--space-5); text-decoration: none; }
 .button-primary { background: var(--accent); color: #fffefa; }
@@ -116,6 +116,7 @@ th { background: var(--sage); color: var(--coffee); }
 .text-link { color: var(--coffee); font-weight: bold; }
 .contact-section { max-width: 1250px; }
 .contact-layout { display: grid; gap: var(--space-12); grid-template-columns: minmax(220px, .7fr) minmax(0, 1.3fr); }
+.contact-layout > * { min-width: 0; }
 .contact-layout h2 { margin: var(--space-2) 0 var(--space-3); }
 .contact-form { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius-md); box-shadow: 0 8px 22px rgba(38, 58, 51, .045); padding: var(--space-7); }
 .field { display: grid; gap: 6px; margin-bottom: var(--space-4); }
@@ -148,7 +149,7 @@ footer span { color: var(--footer-muted); font-size: var(--text-small); }
   .page-heading { padding: var(--space-15) 7%; }
   .section { padding-bottom: var(--space-15); padding-top: var(--space-15); }
   .feature-grid, .info-grid, .product-grid, .gallery-grid, .split-section { grid-template-columns: 1fr; }
-  .contact-layout, .form-grid { grid-template-columns: 1fr; }
+  .contact-layout, .form-grid { grid-template-columns: minmax(0, 1fr); }
   .contact-layout { gap: var(--space-8); }
   .gallery-main { grid-column: auto; }
   .gallery-main img, .gallery-grid figure img { height: 280px !important; }
