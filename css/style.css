@@ -50,6 +50,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 
 .site-header { align-items: center; background: var(--paper); border-bottom: 1px solid var(--line); box-shadow: 0 3px 14px rgba(38, 58, 51, .05); display: flex; justify-content: space-between; padding: var(--space-4) var(--page-gutter); position: sticky; top: 0; z-index: 10; }
 .logo, .brand { color: var(--coffee); font-family: var(--font-display); font-size: 1.35rem; font-weight: bold; text-decoration: none; }
+.site-header .logo { align-items: center; display: inline-flex; gap: var(--space-3); }
+.logo img { height: 52px; object-fit: contain; width: auto; }
 nav { display: flex; flex-wrap: wrap; gap: var(--space-6); }
 nav a { color: var(--muted); font-size: var(--text-small); text-decoration: none; }
 nav a:hover, nav a.active, nav a[aria-current="page"] { color: var(--accent-deep); font-weight: bold; }
