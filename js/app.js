@@ -71,32 +71,82 @@ function statusStok(stok) {
   };
 }
 
-function buatKartuProduk(produk) {
+function buatElemenProduk(produk) {
   const status = statusStok(produk.stok);
-  const labelUnggulan = produk.unggulan
-    ? '<span class="tag">Produk unggulan</span>'
-    : "";
   const productQuery = encodeURIComponent(produk.nama);
   const orderMessage = encodeURIComponent(
     `Halo, saya ingin memesan ${produk.nama}.`,
   );
 
-  return `
-    <article class="product-card">
-      <img src="${produk.gambar}" alt="${produk.alt}" width="${produk.lebar}" height="${produk.tinggi}">
-      <div>
-        <span class="tag">${produk.kategori}</span>
-        <h2>${produk.nama}</h2>
-        ${labelUnggulan}
-        <p>${produk.deskripsi}</p>
-        <strong>${formatRupiah(produk.harga)}</strong>
-        <p class="product-stock ${status.className}">${status.label}</p>
-        <div class="product-actions">
-          <a class="button button-light" href="kontak.html?produk=${productQuery}#form-kontak">Tanya produk</a>
-          <a class="button button-primary" href="https://wa.me/6285641406465?text=${orderMessage}" target="_blank" rel="noopener noreferrer">Pesan</a>
-        </div>
-      </div>
-    </article>`;
+  const kartu = document.createElement("article");
+  kartu.classList.add("product-card");
+
+  const gambar = document.createElement("img");
+  gambar.src = produk.gambar;
+  gambar.alt = produk.alt;
+  gambar.width = produk.lebar;
+  gambar.height = produk.tinggi;
+  gambar.loading = "lazy";
+
+  const detail = document.createElement("div");
+  const kategori = document.createElement("span");
+  kategori.classList.add("tag");
+  kategori.textContent = produk.kategori;
+
+  const nama = document.createElement("h2");
+  nama.textContent = produk.nama;
+
+  const deskripsi = document.createElement("p");
+  deskripsi.textContent = produk.deskripsi;
+
+  const harga = document.createElement("strong");
+  harga.textContent = formatRupiah(produk.harga);
+
+  const stok = document.createElement("p");
+  stok.classList.add("product-stock", status.className);
+  stok.textContent = status.label;
+
+  detail.append(kategori, nama);
+  if (produk.unggulan) {
+    const unggulan = document.createElement("span");
+    unggulan.classList.add("tag");
+    unggulan.textContent = "Produk unggulan";
+    detail.append(unggulan);
+  }
+  detail.append(deskripsi, harga, stok);
+
+  const aksi = document.createElement("div");
+  aksi.classList.add("product-actions");
+
+  const tautanTanya = document.createElement("a");
+  tautanTanya.classList.add("product-inquiry");
+  tautanTanya.href = `kontak.html?produk=${productQuery}#form-kontak`;
+  tautanTanya.textContent = "Tanya produk";
+
+  const tautanPesan = document.createElement("a");
+  tautanPesan.classList.add("button", "button-primary");
+  tautanPesan.href = `https://wa.me/6285641406465?text=${orderMessage}`;
+  tautanPesan.target = "_blank";
+  tautanPesan.rel = "noopener noreferrer";
+  tautanPesan.textContent = "Pesan";
+
+  const tombolHapus = document.createElement("button");
+  tombolHapus.classList.add("remove-product");
+  tombolHapus.type = "button";
+  tombolHapus.textContent = "×";
+  tombolHapus.setAttribute("aria-label", `Hapus ${produk.nama} dari tampilan`);
+  tombolHapus.addEventListener("click", () => {
+    kartu.remove();
+    const jumlahTersisa = productGrid.querySelectorAll(".product-card").length;
+    statusProduk.textContent = `Menampilkan ${jumlahTersisa} produk.`;
+    if (jumlahTersisa === 0) {
+      tampilkanProdukKosong(productGrid, "Tidak ada produk pada tampilan ini.");
+    }
+  });
+
+  aksi.append(tautanTanya, tautanPesan, tombolHapus);
+  kartu.append(gambar, detail, aksi);
+  return kartu;
 }
 
 const menuToggle = document.querySelector(".menu-toggle");
@@ -169,29 +219,79 @@ if (cafeAudio && audioToggle) {
   updateAudioButton();
 }
 
-const productGrid = document.getElementById("product-grid");
-const productTableBody = document.getElementById("product-table-body");
+const productGrid = document.querySelector("#produk-grid");
+const statusProduk = document.querySelector("#status-produk");
+const tombolFilter = document.querySelectorAll("[data-filter]");
+const productTableBody = document.querySelector("#product-table-body");
 
-if (productGrid && productTableBody) {
-  const produkTersedia = products.filter((product) => product.stok > 0);
-  const produkUnggulan = produkTersedia.find((product) => product.unggulan);
-  const kartuProduk = products.map(buatKartuProduk);
-  const barisProduk = [];
+function tampilkanProdukKosong(container, pesan) {
+  const emptyState = document.createElement("p");
+  emptyState.classList.add("empty-state");
+  emptyState.textContent = pesan;
+  container.append(emptyState);
+}
 
-  // forEach dipakai untuk efek samping mengisi daftar baris tabel.
-  products.forEach((product) => {
-    const status = statusStok(product.stok);
-    barisProduk.push(`
-      <tr>
-        <td>${product.nama}</td>
-        <td>${product.kategori}</td>
-        <td>${formatRupiah(product.harga)}</td>
-        <td><span class="product-stock ${status.className}">${status.label}</span></td>
-      </tr>`);
+function renderProduk(kategoriAktif) {
+  if (!productGrid || !statusProduk) {
+    return;
+  }
+
+  const produkTampil = kategoriAktif === "Semua"
+    ? products
+    : products.filter((product) => product.kategori === kategoriAktif);
+  const kartuProduk = produkTampil.map(buatElemenProduk);
+  productGrid.replaceChildren();
+
+  if (kartuProduk.length === 0) {
+    tampilkanProdukKosong(productGrid, "Belum ada produk dalam kategori ini.");
+    statusProduk.textContent = "Tidak ada produk untuk kategori ini.";
+    return;
+  }
+
+  productGrid.append(...kartuProduk);
+  statusProduk.textContent = `Menampilkan ${kartuProduk.length} produk.`;
+}
+
+if (productGrid && statusProduk) {
+  tombolFilter.forEach((tombol) => {
+    tombol.addEventListener("click", (event) => {
+      const filterAktif = event.currentTarget.dataset.filter;
+      tombolFilter.forEach((itemFilter) => {
+        const isActive = itemFilter === event.currentTarget;
+        itemFilter.classList.toggle("is-active", isActive);
+        itemFilter.setAttribute("aria-pressed", String(isActive));
+      });
+      renderProduk(filterAktif);
+    });
   });
 
-  productGrid.innerHTML = kartuProduk.join("");
-  productTableBody.innerHTML = barisProduk.join("");
+  renderProduk("Semua");
+}
+
+if (productTableBody) {
+  const produkTersedia = products.filter((product) => product.stok > 0);
+  const produkUnggulan = produkTersedia.find((product) => product.unggulan);
+
+  const barisProduk = products.map((product) => {
+    const status = statusStok(product.stok);
+    const baris = document.createElement("tr");
+    const nama = document.createElement("td");
+    const kategori = document.createElement("td");
+    const harga = document.createElement("td");
+    const stok = document.createElement("td");
+    const labelStok = document.createElement("span");
+
+    nama.textContent = product.nama;
+    kategori.textContent = product.kategori;
+    harga.textContent = formatRupiah(product.harga);
+    labelStok.classList.add("product-stock", status.className);
+    labelStok.textContent = status.label;
+    stok.append(labelStok);
+    baris.append(nama, kategori, harga, stok);
+    return baris;
+  });
+
+  productTableBody.replaceChildren(...barisProduk);
   console.log("Jumlah produk tersedia:", produkTersedia.length);
   console.log(
     "Rekomendasi produk unggulan:",

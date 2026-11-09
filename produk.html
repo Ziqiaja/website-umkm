@@ -15,7 +15,13 @@
 	<main>
 		<section class="page-heading"><p class="eyebrow">MENU KAMI</p><h1>Menu favorit untuk setiap suasana.</h1><p>Pilih minuman dan makanan ringan yang paling cocok untuk menemani harimu.</p></section>
 		<section class="section">
-			<div class="product-grid" id="product-grid" aria-live="polite"></div>
+			<div class="product-filters" role="group" aria-label="Filter kategori produk">
+				<button class="button button-light filter-button is-active" type="button" data-filter="Semua" aria-pressed="true">Semua</button>
+				<button class="button button-light filter-button" type="button" data-filter="Minuman" aria-pressed="false">Minuman</button>
+				<button class="button button-light filter-button" type="button" data-filter="Makanan" aria-pressed="false">Makanan</button>
+			</div>
+			<p class="product-status" id="status-produk" aria-live="polite"></p>
+			<div class="product-grid" id="produk-grid" aria-live="polite"></div>
 		</section>
 		<section class="section price-section"><p class="eyebrow">DAFTAR HARGA</p><h2>Harga menu</h2><div class="table-wrap"><table><thead><tr><th>Produk</th><th>Kategori</th><th>Harga</th><th>Stok</th></tr></thead><tbody id="product-table-body"></tbody></table></div></section>
 	</main>
