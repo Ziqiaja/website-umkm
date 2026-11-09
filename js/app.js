@@ -53,6 +53,52 @@ const products = [
   },
 ];
 
+function formatRupiah(nilai) {
+  return `Rp${nilai.toLocaleString("id-ID")}`;
+}
+
+function statusStok(stok) {
+  if (stok > 0) {
+    return {
+      label: `Stok tersedia: ${stok}`,
+      className: "stock-available",
+    };
+  }
+
+  return {
+    label: "Stok habis",
+    className: "stock-out",
+  };
+}
+
+function buatKartuProduk(produk) {
+  const status = statusStok(produk.stok);
+  const labelUnggulan = produk.unggulan
+    ? '<span class="tag">Produk unggulan</span>'
+    : "";
+  const productQuery = encodeURIComponent(produk.nama);
+  const orderMessage = encodeURIComponent(
+    `Halo, saya ingin memesan ${produk.nama}.`,
+  );
+
+  return `
+    <article class="product-card">
+      <img src="${produk.gambar}" alt="${produk.alt}" width="${produk.lebar}" height="${produk.tinggi}">
+      <div>
+        <span class="tag">${produk.kategori}</span>
+        <h2>${produk.nama}</h2>
+        ${labelUnggulan}
+        <p>${produk.deskripsi}</p>
+        <strong>${formatRupiah(produk.harga)}</strong>
+        <p class="product-stock ${status.className}">${status.label}</p>
+        <div class="product-actions">
+          <a class="button button-light" href="kontak.html?produk=${productQuery}#form-kontak">Tanya produk</a>
+          <a class="button button-primary" href="https://wa.me/6285641406465?text=${orderMessage}" target="_blank" rel="noopener noreferrer">Pesan</a>
+        </div>
+      </div>
+    </article>`;
+}
+
 const menuToggle = document.querySelector(".menu-toggle");
 const primaryNavigation = document.getElementById("primary-navigation");
 
@@ -127,51 +173,31 @@ const productGrid = document.getElementById("product-grid");
 const productTableBody = document.getElementById("product-table-body");
 
 if (productGrid && productTableBody) {
-  const formatPrice = (price) => `Rp${price.toLocaleString("id-ID")}`;
-  let productCards = "";
-  let productRows = "";
+  const produkTersedia = products.filter((product) => product.stok > 0);
+  const produkUnggulan = produkTersedia.find((product) => product.unggulan);
+  const kartuProduk = products.map(buatKartuProduk);
+  const barisProduk = [];
 
-  for (const product of products) {
-    const stockLabel =
-      product.stok > 0 ? `Stok tersedia: ${product.stok}` : "Stok habis";
-    const featuredLabel = product.unggulan
-      ? '<span class="tag">Produk unggulan</span>'
-      : "";
-    const productQuery = encodeURIComponent(product.nama);
-    const orderMessage = encodeURIComponent(
-      `Halo, saya ingin memesan ${product.nama}.`,
-    );
-
-    productCards += `
-      <article class="product-card">
-        <img src="${product.gambar}" alt="${product.alt}" width="${product.lebar}" height="${product.tinggi}">
-        <div>
-          <span class="tag">${product.kategori}</span>
-          <h2>${product.nama}</h2>
-          ${featuredLabel}
-          <p>${product.deskripsi}</p>
-          <strong>${formatPrice(product.harga)}</strong>
-          <p class="product-stock">${stockLabel}</p>
-          <div class="product-actions">
-            <a class="button button-light" href="kontak.html?produk=${productQuery}#form-kontak">Tanya produk</a>
-            <a class="button button-primary" href="https://wa.me/6285641406465?text=${orderMessage}" target="_blank" rel="noopener noreferrer">Pesan</a>
-          </div>
-        </div>
-      </article>`;
-
-    productRows += `
+  // forEach dipakai untuk efek samping mengisi daftar baris tabel.
+  products.forEach((product) => {
+    const status = statusStok(product.stok);
+    barisProduk.push(`
       <tr>
         <td>${product.nama}</td>
         <td>${product.kategori}</td>
-        <td>${formatPrice(product.harga)}</td>
-        <td>${stockLabel}</td>
-      </tr>`;
-  }
+        <td>${formatRupiah(product.harga)}</td>
+        <td><span class="product-stock ${status.className}">${status.label}</span></td>
+      </tr>`);
+  });
 
-  productGrid.innerHTML = productCards;
-  productTableBody.innerHTML = productRows;
+  productGrid.innerHTML = kartuProduk.join("");
+  productTableBody.innerHTML = barisProduk.join("");
+  console.log("Jumlah produk tersedia:", produkTersedia.length);
+  console.log(
+    "Rekomendasi produk unggulan:",
+    produkUnggulan ? produkUnggulan.nama : "Belum ada produk unggulan tersedia",
+  );
   console.table(products);
-  console.info(`Debug produk: ${products.length} produk dirender.`);
 }
 
 const contactForm = document.querySelector("#form-kontak");
